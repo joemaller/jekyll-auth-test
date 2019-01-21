@@ -8,13 +8,13 @@ phases:
   install:
     commands:
       - git checkout $GIT_BRANCH
-      - cd docs
-      - gem install jekyll
+      - gem install bundler
+      - bundle install
 
 
   build: 
     commands: 
-      - jekyll build
+      - bundle exec jekyll build
 
 #  post_build:
 #    commands:
