@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    GIT_BRANCH: "master"
+
+phases:
+  install:
+    commands:
+      - git checkout $GIT_BRANCH
+      - cd docs
+      - gem install jekyll
+
+
+  build: 
+    commands: 
+      - jekyll build
+
+#  post_build:
+#    commands:
+#      - aws s3 sync ./dist $S3_URI --delete
+#      - echo Files delivered to S3 bucket $S3_URI
+#      - aws cloudfront create-invalidation --distribution-id $CF_ID --paths /\*
+#      - echo CloudFront cache $CF_ID invalidated
+#      - echo Build completed on `date`
+
+# cache: 
+#  paths:
+#   - 'node_modules/**/*'
+#   - '~/.npm/**/*'
