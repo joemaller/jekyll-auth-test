@@ -7,7 +7,7 @@ env:
 phases:
   install:
     commands:
-      - gem environment
+      # - gem environment
       - gem install jekyll bundler
 
   pre_build: 
@@ -30,7 +30,7 @@ phases:
 
 artifacts:
   files:
-    - docs/_site
+    - docs/_site/**/*
   discard-paths: no
   base-directory: docs/_site
 
