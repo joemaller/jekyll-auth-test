@@ -3,6 +3,9 @@ version: 0.2
 env:
   variables:
     GIT_BRANCH: "master"
+    S3_URI: "s3://iop015-site-preview"
+    # ID of the target distribution (for cache invalidation)
+    CF_ID: E1H2TA6UU6TYW6
 
 phases:
   install:
@@ -20,18 +23,16 @@ phases:
     commands: 
       - bundle exec jekyll build
 
-#  post_build:
-#    commands:
-#      - aws s3 sync ./dist $S3_URI --delete
-#      - echo Files delivered to S3 bucket $S3_URI
-#      - aws cloudfront create-invalidation --distribution-id $CF_ID --paths /\*
-#      - echo CloudFront cache $CF_ID invalidated
-#      - echo Build completed on `date`
+  post_build:
+    commands:
+      - aws s3 sync docs/_site $S3_URI --delete
+      - echo Files delivered to S3 bucket $S3_URI
+      - aws cloudfront create-invalidation --distribution-id $CF_ID --paths /\*
+      - echo CloudFront cache $CF_ID invalidated
 
 artifacts:
   name: archive.zip
   files:
-    # - docs/_site/**/*
     - '**/*'
   discard-paths: no
   base-directory: docs/_site/
