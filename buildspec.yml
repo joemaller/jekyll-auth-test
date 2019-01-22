@@ -32,7 +32,7 @@ artifacts:
   files:
     - docs/_site/**/*
   discard-paths: no
-  base-directory: docs/_site
+  # base-directory: docs/_site
 
 
 cache: 
