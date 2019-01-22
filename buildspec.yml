@@ -29,6 +29,7 @@ phases:
 #      - echo Build completed on `date`
 
 artifacts:
+  name: archive.zip
   files:
     - docs/_site/**/*
   discard-paths: no
