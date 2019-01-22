@@ -25,7 +25,9 @@ phases:
 
   post_build:
     commands:
-      - aws s3 sync docs/_site $S3_URI --delete
+      - pwd
+      # - cd ../
+      - aws s3 sync ../docs/_site $S3_URI --delete
       - echo Files delivered to S3 bucket $S3_URI
       - aws cloudfront create-invalidation --distribution-id $CF_ID --paths /\*
       - echo CloudFront cache $CF_ID invalidated
