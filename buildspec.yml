@@ -7,11 +7,12 @@ env:
 phases:
   install:
     commands:
-      - git checkout $GIT_BRANCH
+      - gem environment
       - gem install jekyll bundler
 
   pre_build: 
     commands: 
+      - git checkout $GIT_BRANCH
       - cd docs
       - bundle install
 
