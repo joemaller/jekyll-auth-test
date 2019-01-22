@@ -31,9 +31,10 @@ phases:
 artifacts:
   name: archive.zip
   files:
-    - docs/_site/**/*
+    # - docs/_site/**/*
+    - '**/*'
   discard-paths: no
-  # base-directory: docs/_site
+  base-directory: docs/_site/
 
 
 cache: 
