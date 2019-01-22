@@ -25,7 +25,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-source: docs2
+# source: docs2
 markdown: kramdown
 theme: minima
 plugins:
