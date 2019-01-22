@@ -14,7 +14,7 @@ phases:
     commands: 
       - git checkout $GIT_BRANCH
       - cd docs
-      - bundle install
+      - bundle install --path /root/vendor/bundle
 
   build: 
     commands: 
@@ -28,7 +28,6 @@ phases:
 #      - echo CloudFront cache $CF_ID invalidated
 #      - echo Build completed on `date`
 
-# cache: 
-#  paths:
-#   - 'node_modules/**/*'
-#   - '~/.npm/**/*'
+cache: 
+  paths:
+    - ' /root/vendor/**/*'
