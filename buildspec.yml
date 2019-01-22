@@ -10,8 +10,11 @@ phases:
       - git checkout $GIT_BRANCH
       - gem install jekyll bundler
       # - gem install bundler
-      - bundle install
 
+  pre_build: 
+    commands: 
+      - cd docs
+      - bundle install
 
   build: 
     commands: 
