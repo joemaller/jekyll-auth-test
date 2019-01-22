@@ -28,6 +28,13 @@ phases:
 #      - echo CloudFront cache $CF_ID invalidated
 #      - echo Build completed on `date`
 
+artifacts:
+  files:
+    - docs/_site
+  discard-paths: no
+  base-directory: docs/_site
+
+
 cache: 
   paths:
-    - ' /root/vendor/**/*'
+    - '/root/vendor/**/*'
