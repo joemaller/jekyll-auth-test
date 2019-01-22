@@ -18,6 +18,7 @@ phases:
       - which ruby
       - ruby --version
       - bundle --version
+      - bundle update --bundler
       - bundle install
 
   build: 
