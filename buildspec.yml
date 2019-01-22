@@ -8,20 +8,11 @@ phases:
   install:
     commands:
       - git checkout $GIT_BRANCH
-      # https://bundler.io/blog/2019/01/03/announcing-bundler-2.html
-      # https://stollerys.co.uk/2019/01/12/you-must-use-bundler-2-or-greater-with-this-lockfile.html
-      - gem update --system
       - gem install jekyll bundler
-      # - gem install bundler
 
   pre_build: 
     commands: 
       - cd docs
-      - which bundle
-      - which ruby
-      - ruby --version
-      - bundle --version
-      # - bundle update --bundler
       - bundle install
 
   build: 
